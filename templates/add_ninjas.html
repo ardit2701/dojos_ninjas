@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Ninja</title>
+</head>
+<body>
+    <h1>Add Ninja</h1>
+    <form method="post" action="{{ url_for('add_ninja') }}">
+        <label for="name">Ninja Name:</label>
+        <input type="text" name="name" required>
+        <label for="dojo_id">Dojo:</label>
+        <select name="dojo_id" required>
+            {% for dojo in dojos %}
+                <option value="{{ dojo.id }}">{{ dojo.name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Add Ninja</button>
+    </form>
+</body>
+</html>
